@@ -1,4 +1,5 @@
 var codeDay = new Date('November 8, 2014 12:00:00');
+var today = false;
 
 function fixIntegers(integer){
 	if (integer < 0)
@@ -28,15 +29,50 @@ function updateDate(){
 	var hours = fixIntegers(difference % 24);
 	difference = Math.floor(difference / 24);
 	var days = difference;
+	$('#ms').text(formatMs(Math.abs((now.getMilliseconds() - codeDay.getMilliseconds()) - 1000)));
+
+	if(!today){
+		if(days === -1){
+			$('h1').text('TIME REMAINING');
+			codeDay = new Date('November 9, 2014 12:00:00');
+			today = true;
+		}
+
+		if(days <= -2){
+			$('h1').html('<span class="codeday">CODEDAY</span> ENDED!');
+			days = 0;
+			$('#ms').text("000");
+			$('#days').text("0");
+			clearInterval(dateInterval);
+			return;
+		}
+	}else{
+		if(days === 0){
+			secondsInt = parseInt(seconds);
+			switch(secondsInt){
+				case 2:
+					$('h1').text('READY!');
+					break;
+				case 1:
+					$('h1').text('SET!');
+					break;
+				case 0:
+					$('h1').text('CODE!');
+					break;
+				default:
+					break;
+			}
+		}
+	}
+
 	$('#days').text(days);
 	$('#hours').text(hours);
 	$('#mins').text(minutes);
 	$('#secs').text(seconds);
-	$('#ms').text(formatMs(Math.abs((now.getMilliseconds() - codeDay.getMilliseconds()) - 1000)));
 }
 
 updateDate();
 
-setInterval(function(){
+var dateInterval = setInterval(function(){
 	updateDate();
 }, 1);
