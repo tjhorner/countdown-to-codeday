@@ -35,6 +35,10 @@ h1{
 	-webkit-text-fill-color: transparent;
 }
 
+a{
+	text-decoration: none;
+}
+
 #timer > span{
 	font-size: 50pt;
 	font-weight: bold;
