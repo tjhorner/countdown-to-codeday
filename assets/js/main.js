@@ -8,7 +8,17 @@ function fixIntegers(integer){
 	return "" + integer;
 }
 
-setInterval(function(){
+function formatMs(integer){
+	if (integer < 0)
+		integer = 0;
+	if (integer < 100 && !(integer < 10))
+		return "0" + integer;
+	if (integer < 10)
+		return "00" + integer;
+	return "" + integer;
+}
+
+function updateDate(){
 	var now = new Date();
 	var difference = Math.floor((codeDay - now) / 1000);
 	var seconds = fixIntegers(difference % 60);
@@ -22,4 +32,11 @@ setInterval(function(){
 	$('#hours').text(hours);
 	$('#mins').text(minutes);
 	$('#secs').text(seconds);
-}, 1000);
+	$('#ms').text(formatMs(Math.abs((now.getMilliseconds() - codeDay.getMilliseconds()) - 1000)));
+}
+
+updateDate();
+
+setInterval(function(){
+	updateDate();
+}, 1);
