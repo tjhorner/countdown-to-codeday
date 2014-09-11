@@ -47,7 +47,7 @@ function updateDate(){
 			return;
 		}
 	}else{
-		if(days === 0){
+		if(days === 0 && hours === 0 && minutes === 0){
 			secondsInt = parseInt(seconds);
 			switch(secondsInt){
 				case 2:
