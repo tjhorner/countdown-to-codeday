@@ -1,4 +1,4 @@
-var codeDay = new Date('November 8, 2014 12:00:00');
+var codeDay = new Date('September 10, 2014 20:41:00');
 var today = false;
 
 function fixIntegers(integer){
@@ -34,7 +34,7 @@ function updateDate(){
 	if(!today){
 		if(days === -1){
 			$('h1').text('TIME REMAINING');
-			codeDay = new Date('November 9, 2014 12:00:00');
+			codeDay = new Date('September 11, 2014 20:41:00');
 			today = true;
 		}
 
@@ -46,22 +46,22 @@ function updateDate(){
 			clearInterval(dateInterval);
 			return;
 		}
-	}else{
-		if(days === 0 && hours === 0 && minutes === 0){
-			secondsInt = parseInt(seconds);
-			switch(secondsInt){
-				case 2:
-					$('h1').text('READY!');
-					break;
-				case 1:
-					$('h1').text('SET!');
-					break;
-				case 0:
-					$('h1').text('CODE!');
-					break;
-				default:
-					break;
-			}
+	}
+
+	if(parseInt(days) === 0 && parseInt(hours) === 0 && parseInt(minutes) === 0){
+		secondsInt = parseInt(seconds);
+		switch(secondsInt){
+			case 2:
+				$('h1').text('READY!');
+				break;
+			case 1:
+				$('h1').text('SET!');
+				break;
+			case 0:
+				$('h1').text('CODE!');
+				break;
+			default:
+				break;
 		}
 	}
 
