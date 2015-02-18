@@ -1,4 +1,4 @@
-var codeDay = new Date('November 8, 2014 12:00:00');
+var codeDay = new Date('May 23, 2015 12:00:00');
 var today = false;
 
 function fixIntegers(integer){
@@ -34,7 +34,7 @@ function updateDate(){
 	if(!today){
 		if(days === -1){
 			$('h1').text('TIME REMAINING');
-			codeDay = new Date('November 9, 2014 12:00:00');
+			codeDay = new Date('May 24, 2015 12:00:00');
 			today = true;
 		}
 
