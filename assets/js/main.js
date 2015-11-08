@@ -35,7 +35,7 @@ function start(codeDay){
 		if(!today){
 			if(days === -1){
 				$('h1').text('TIME REMAINING');
-				codeDay = new Date('May 24, 2015 12:00:00');
+				codeDay = new Date('November 8, 2015 12:00:00');
 				today = true;
 			}
 
