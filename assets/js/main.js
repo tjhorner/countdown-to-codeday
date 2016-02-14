@@ -35,12 +35,12 @@ function start(codeDay){
 		if(!today){
 			if(days === -1){
 				$('h1').text('TIME REMAINING');
-				codeDay = new Date('November 8, 2015 12:00:00');
+				codeDay = new Date('February 14, 2016 12:00:00');
 				today = true;
 			}
 
 			if(days <= -2){
-				$('h1').html('<span class="codeday">CODEDAY</span> ENDED!');
+				$('h1').html('<span class="codeday">CODEDAY</span> IS OVER!');
 				days = 0;
 				$('#ms').text("000");
 				$('#days').text("0");
